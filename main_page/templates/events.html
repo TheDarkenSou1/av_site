@@ -1,0 +1,25 @@
+<section id="events" class="events">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Заходи</h2>
+          <p>Діліться <span>Своїми Моментами</span> В Нашому Ресторані</p>
+        </div>
+
+        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            {% for event in events %}
+                <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({{ event.photo.url }})">
+                  <h3>{{ event.title }}</h3>
+                  <div class="price align-self-start">{{ event.price }}&#8372;</div>
+                  <p class="description">
+                    {{ event.desc }}
+                  </p>
+                </div><!-- End Event item -->
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>

@@ -1,0 +1,37 @@
+<section id="why-us" class="why-us section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-box">
+              <h3>Чому Ви вибрали нас?</h3>
+              <p>
+                Будь-який опис замовника...
+                Будь-який опис замовника...
+                Будь-який опис замовника...
+              </p>
+              <div class="text-center">
+                <a href="/#" class="more-btn">Дізнатися більше <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Why Box -->
+
+          <div class="col-lg-8 d-flex align-items-center">
+            <div class="row gy-4">
+              {% for item in why_us %}
+                  <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                      <i class="bi bi-clipboard-data"></i>
+                      <h4>{{ item.title }}</h4>
+                      <p>{{ item.description }}</p>
+                    </div>
+                  </div><!-- End Icon Box -->
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>

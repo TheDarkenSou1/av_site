@@ -1,0 +1,7 @@
+/account/migrations/
+/contact/migrations/
+/main_page/migrations/
+/manager/migrations/
+/venv/
+/db.sqlite3
+/media/

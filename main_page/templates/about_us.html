@@ -1,0 +1,31 @@
+<section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Про Нас</h2>
+          <p>Дізнайтесь більше  <span>Про Нас</span></p>
+        </div>
+        {% for item in about %}
+            <div class="row gy-4">
+              <div class="col-lg-7 position-relative about-img" style="background-image: url({{ item.back_img.url }}) ;" data-aos="fade-up" data-aos-delay="150">
+                <div class="call-us position-absolute">
+                  <h4>Забронюйте столик</h4>
+                  <p>{{ item.phone_num }}</p>
+                </div>
+              </div>
+              <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+                <div class="content ps-0 ps-lg-5">
+                  <p class="fst-italic">
+                    {{ item.desc }}
+                  </p>
+
+                  <div class="position-relative mt-4">
+                    <img src={{ item.img.url }} alt="" class="img-fluid">
+                    <a href="{{ item.video_link }}" class="glightbox play-btn"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+    </section>

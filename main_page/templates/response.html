@@ -1,0 +1,56 @@
+<section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Відгуки</h2>
+          <p>Що Наші Відвідувачі <span>Говорять Про Нас</span></p>
+        </div>
+
+        <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            {% for person in response %}
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <div class="row gy-4 justify-content-center">
+                      <div class="col-lg-6">
+                        <div class="testimonial-content">
+                          <p>
+                            <i class="bi bi-quote quote-icon-left"></i>
+                             {{ person.resp }}
+                            <i class="bi bi-quote quote-icon-right"></i>
+                          </p>
+                          <h3>{{ person.surname }} {{ person.name }}</h3>
+                          <h4>{{ person.prof }}</h4>
+                          <div class="stars">
+                              {% if person.stars == 1 %}
+                                 <i class="bi bi-star-fill"></i>
+                              {% elif person.stars == 2 %}
+                                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                              {% elif person.stars == 3 %}
+                                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                      class="bi bi-star-fill"></i>
+                              {% elif person.stars == 4 %}
+                                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                              {% elif person.stars == 5 %}
+                                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                      class="bi bi-star-fill"></i>
+                              {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 text-center">
+                        <img src="{{ person.photo.url }}" class="img-fluid testimonial-img" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+            {% endfor %}
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>

@@ -1,0 +1,81 @@
+<section id="menu" class="menu">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Наше меню</h2>
+          <p>Погляньте на <span>меню ...</span></p>
+        </div>
+
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            {% for item in categories %}
+                {% if forloop.first %}
+                  <li class="nav-item">
+                    <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-{{ item.pk }}">
+                      <h4>{{ item.title }}</h4>
+                    </a>
+                  </li><!-- End tab nav item -->
+                {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-{{ item.pk }}">
+                      <h4>{{ item.title }}</h4>
+                    </a><!-- End tab nav item -->
+                  </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+      {% for item in categories %}
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+          {% if forloop.first %}
+              <div class="tab-pane fade active show" id="menu-{{ item.pk }}">
+                        <div class="tab-header text-center">
+                          <p>Меню</p>
+                          <h3>{{ item.title }}</h3>
+                        </div>
+
+                        <div class="row gy-5">
+                          {% for dish in dishes %}
+                              {% if dish.category.pk == item.position %}
+                              <div class="col-lg-4 menu-item">
+                                <a href={{ dish.photo.url }} class="glightbox"><img src={{ dish.photo.url }} alt="" class="img-fluid"></a>
+                                <h4>{{ dish.title }}</h4>
+                                <p class="ingredients">
+                                  {{ dish.ingredients }}
+                                </p>
+                                <p class="price">
+                                  {{ dish.price }}&#8372;
+                                </p>
+                              </div><!-- Menu Item -->
+                              {% endif %}
+                          {% endfor %}
+                </div>
+          {% else %}
+                <div class="tab-pane fade" id="menu-{{ item.pk }}">
+                        <div class="tab-header text-center">
+                          <p>Меню</p>
+                          <h3>{{ item.title }}</h3>
+                        </div>
+
+                        <div class="row gy-5">
+                          {% for dish in dishes %}
+                              {% if dish.category.pk == item.position %}
+                              <div class="col-lg-4 menu-item">
+                                <a href={{ dish.photo.url }} class="glightbox"><img src={{ dish.photo.url }} alt="" class="img-fluid"></a>
+                                <h4>{{ dish.title }}</h4>
+                                <p class="ingredients">
+                                  {{ dish.ingredients }}
+                                </p>
+                                <p class="price">
+                                  {{ dish.price }}&#8372;
+                                </p>
+                              </div><!-- Menu Item -->
+                              {% endif %}
+                          {% endfor %}
+
+
+                </div>
+              {% endif %}
+          </div><!-- End Starter Menu Content -->
+        {% endfor %}
+        </div>
+    </section>
